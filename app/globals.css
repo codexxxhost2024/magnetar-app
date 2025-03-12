@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --primary: #b30000;
+  --secondary: #000000;
+  --accent: #ffc107;
+
+  /* Light Mode */
+  --background: #ffffff;
+  --surface: #f9f9f9;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --divider: #dddddd;
+
+  /* System Colors */
+  --foreground: 20 20% 13.3%;
+  --card: 0 0% 97.6%;
+  --card-foreground: 20 20% 13.3%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 20% 13.3%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --border: 214.3 31.8% 86.9%;
+  --input: 214.3 31.8% 86.9%;
+  --ring: 0 72% 35.3%;
+  --radius: 0.5rem;
+}
+
+/* Dark mode styles - commented out for now
+.dark {
+  --primary: #b30000;
+  --secondary: #000000;
+  --accent: #ffc107;
+
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --divider: #333333;
+
+  --foreground: 0 0% 100%;
+  --card: 0 0% 11.8%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 11.8%;
+  --popover-foreground: 0 0% 100%;
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 70%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+}
+*/
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-medium py-3 px-6 rounded-md hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-divider text-text-primary font-medium py-3 px-6 rounded-md hover:bg-surface transition-colors dark:bg-surface dark:border-divider dark:text-text-primary dark:hover:bg-[#2A2A2A];
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm p-4 border border-divider dark:bg-surface dark:text-text-primary dark:border-divider;
+  }
+
+  .nav-icon {
+    @apply flex flex-col items-center justify-center text-text-secondary dark:text-text-secondary;
+  }
+
+  .nav-icon.active {
+    @apply text-primary;
+  }
+
+  .logo-circle {
+    width: 55px;
+    height: 55px;
+    @apply rounded-full overflow-hidden flex items-center justify-center bg-surface shadow-lg border-4 border-white;
+    @apply dark:border-[#333333];
+    @apply dark:bg-[#2A2A2A];
+  }
+
+  .app-header {
+    @apply bg-white text-text-primary p-4 flex justify-between items-center shadow-sm border-b border-divider w-full;
+    @apply dark:bg-surface dark:text-text-primary dark:border-divider;
+    @apply sticky top-0 z-40;
+  }
+
+  .content-area {
+    @apply pt-2 pb-16;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hover animations */
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-shadow {
+    @apply transition-shadow duration-300 hover:shadow-lg;
+  }
+
+  .hover-brightness {
+    @apply transition-all duration-300 hover:brightness-110;
+  }
+}
+
